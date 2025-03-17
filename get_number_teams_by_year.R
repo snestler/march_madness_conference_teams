@@ -62,7 +62,6 @@ return(df)
 # Run the lookup_multiple_teams() function on each year from 1985 to 2024.
 start_year <- 1985
 end_year <- 2025
-
 all_results <- list()
 for (year in start_year:end_year) {
   all_results[[as.character(year)]] <- lookup_multiple_teams(year)
@@ -136,9 +135,9 @@ line_plot <- ggplot(data = dfwy_5_plus_major, aes(x = Year, y = Number_of_Teams,
     ) +
     scale_color_manual(values = custom_colors) +
     scale_linetype_manual(values = line_types) +
-    scale_y_continuous(expand = c(0, 0), breaks = seq(0, max(dfwy_5_plus_major$Number_of_Teams), by = 5)) +
+    scale_y_continuous(expand = c(0, 0), breaks = seq(0, max(dfwy_5_plus_major$Number_of_Teams) + 2, by = 5)) +
     scale_x_continuous(expand = c(0, 0), 
                        breaks = seq(min(dfwy_5_plus_major$Year), max(dfwy_5_plus_major$Year), by = 5),
                        labels = function(x) ifelse(x %% 5 == 0, x, ""))
   
-ggsave("line_plot.png", plot = line_plot2, width = 10, height = 6, units = "in", dpi = 300)
+ggsave("line_plot.png", plot = line_plot, width = 10, height = 6, units = "in", dpi = 300)
