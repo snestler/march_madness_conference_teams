@@ -3,7 +3,7 @@ library(dplyr)
 library(perplexR)
 library(ggplot2)
 
-# Set up Perplexity API key
+# Get your Perplexity API key from the .renviron file (since you can't use mine!)
 api_key <- Sys.getenv("PERPLEXITY_API_KEY")
 
 # Define the role for the perplexR query.
